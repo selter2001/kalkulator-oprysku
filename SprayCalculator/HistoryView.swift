@@ -57,6 +57,7 @@ struct HistoryView: View {
 
 // MARK: - History Row View
 struct HistoryRowView: View {
+    @Environment(LocalizationManager.self) private var localization
     let calculation: SprayCalculation
     @State private var isExpanded = false
     
@@ -84,9 +85,9 @@ struct HistoryRowView: View {
             // Expanded details
             if isExpanded {
                 VStack(spacing: 8) {
-                    DetailRow(icon: "💧", label: "Ciecz robocza", value: "\(formatNumber(calculation.totalWorkingFluid)) l")
-                    DetailRow(icon: "🧪", label: "Środek", value: "\(formatNumber(calculation.totalChemical)) l")
-                    DetailRow(icon: "🚜", label: "Napełnienia", value: tankFillsText)
+                    DetailRow(icon: "💧", label: localization.workingFluid, value: "\(formatNumber(calculation.totalWorkingFluid)) l")
+                    DetailRow(icon: "🧪", label: localization.chemical, value: "\(formatNumber(calculation.totalChemical)) l")
+                    DetailRow(icon: "🚜", label: localization.tankFills, value: tankFillsText)
                 }
                 .padding(.top, 4)
                 .transition(.opacity.combined(with: .move(edge: .top)))
@@ -107,9 +108,9 @@ struct HistoryRowView: View {
     
     private var tankFillsText: String {
         if calculation.hasPartialTank {
-            return "\(calculation.fullTanks) pełne + 1 częściowe (\(formatNumber(calculation.partialTankVolume)) l)"
+            return "\(calculation.fullTanks) \(localization.fullTanks) + 1 \(localization.partialTank) (\(formatNumber(calculation.partialTankVolume)) l)"
         }
-        return "\(calculation.fullTanks) pełne"
+        return "\(calculation.fullTanks) \(localization.fullTanks)"
     }
     
     private func formatDate(_ date: Date) -> String {

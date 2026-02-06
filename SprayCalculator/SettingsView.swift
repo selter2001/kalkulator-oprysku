@@ -29,12 +29,12 @@ struct SettingsView: View {
             // App Info Section
             Section {
                 HStack {
-                    Text("Wersja")
+                    Text(localization.version)
                     Spacer()
                     Text("1.0.0")
                         .foregroundColor(.textSecondary)
                 }
-                
+
                 HStack {
                     Text("iOS")
                     Spacer()
@@ -42,7 +42,7 @@ struct SettingsView: View {
                         .foregroundColor(.textSecondary)
                 }
             } header: {
-                Text("Informacje")
+                Text(localization.information)
                     .font(.subheadline)
                     .foregroundColor(.textSecondary)
             }

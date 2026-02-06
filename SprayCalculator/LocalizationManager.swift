@@ -160,6 +160,20 @@ class LocalizationManager {
         currentLanguage == .polish ? "Jednostka powierzchni" : "Area unit"
     }
 
+    // MARK: - Settings
+    var version: String {
+        currentLanguage == .polish ? "Wersja" : "Version"
+    }
+
+    var information: String {
+        currentLanguage == .polish ? "Informacje" : "Information"
+    }
+
+    // MARK: - Animation
+    var calculating: String {
+        currentLanguage == .polish ? "Obliczanie..." : "Calculating..."
+    }
+
     // MARK: - Per-tank composition (CALC-01, CALC-02, CALC-03)
     var fullTankComposition: String {
         currentLanguage == .polish ? "Skład pełnego zbiornika" : "Full tank composition"

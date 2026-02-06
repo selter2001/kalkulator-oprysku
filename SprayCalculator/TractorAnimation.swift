@@ -5,7 +5,8 @@ struct TractorSprayingAnimation: View {
     @State private var tractorOffset: CGFloat = -200
     @State private var isAnimating = false
     @State private var sprayDrops: [SprayDrop] = []
-    
+
+    let calculatingText: String
     let onComplete: () -> Void
     
     var body: some View {
@@ -37,7 +38,7 @@ struct TractorSprayingAnimation: View {
                 .clipped()
                 
                 // Loading text
-                Text(isAnimating ? "Obliczanie..." : "")
+                Text(isAnimating ? calculatingText : "")
                     .font(.system(size: 16, weight: .medium, design: .rounded))
                     .foregroundColor(.white)
             }
@@ -253,5 +254,5 @@ struct Triangle: Shape {
 
 // MARK: - Preview
 #Preview {
-    TractorSprayingAnimation(onComplete: {})
+    TractorSprayingAnimation(calculatingText: "Obliczanie...", onComplete: {})
 }

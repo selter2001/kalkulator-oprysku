@@ -140,7 +140,7 @@ struct CalculatorViewWithFavorite: View {
         .background(LinearGradient.backgroundGradient.ignoresSafeArea())
         .overlay {
             if viewModel.showAnimation {
-                TractorSprayingAnimation {
+                TractorSprayingAnimation(calculatingText: localization.calculating) {
                     withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
                         viewModel.onAnimationComplete()
                     }
