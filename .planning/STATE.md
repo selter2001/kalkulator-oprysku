@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Rolnik w polu musi szybko i bezblednie wiedziec: ile srodka i wody wlac do kazdego zbiornika opryskiwacza
-**Current focus:** Phase 3 in progress -- PDF export complete, About/README/Bundle ID remaining
+**Current focus:** PROJECT COMPLETE -- all 3 phases, 8 plans delivered
 
 ## Current Position
 
 Phase: 3 of 3 (Export & App Store Prep)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-02-06 -- Completed 03-01-PLAN.md (PDF Export)
+Plan: 2 of 2 in current phase
+Status: PROJECT COMPLETE
+Last activity: 2026-02-06 -- Completed 03-02-PLAN.md (About View & App Store Prep)
 
-Progress: [████████░░] 87% (7/8 plans)
+Progress: [██████████] 100% (8/8 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 4min
-- Total execution time: 0.47 hours
+- Total execution time: 0.53 hours
 
 **By Phase:**
 
@@ -29,10 +29,10 @@ Progress: [████████░░] 87% (7/8 plans)
 |-------|-------|-------|----------|
 | 1. Foundation & MVVM | 4/4 | 15min | 4min |
 | 2. Visual Polish | 2/2 | 10min | 5min |
-| 3. Export & App Store Prep | 1/2 | 3min | 3min |
+| 3. Export & App Store Prep | 2/2 | 6min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-04 (3min), 02-01 (3min), 02-02 (7min), 03-01 (3min)
+- Last 5 plans: 02-01 (3min), 02-02 (7min), 03-01 (3min), 03-02 (3min)
 - Trend: Stable fast
 
 *Updated after each plan completion*
@@ -56,6 +56,10 @@ Recent decisions affecting current work:
 - [03-01]: ShareLink(item:) eager evaluation -- acceptable for single-page PDF, nearly instant generation
 - [03-01]: Color.gray for PDF secondary text instead of .secondary (adaptive color unsafe in PDF)
 - [03-01]: A4 width (595pt) for PDF -- standard European paper size for Polish farmers
+- [03-02]: AboutView reads CFBundleShortVersionString + CFBundleVersion from Bundle.main for version display
+- [03-02]: NavigationLink to AboutView in separate Section (no header) for clean visual separation
+- [03-02]: README.md in Polish for primary audience, English build instructions
+- [03-02]: Bundle ID com.wojciecholszak.kalkulatoroprysku -- reverse-domain matching author's identity
 
 ### Pending Todos
 
@@ -63,11 +67,13 @@ None.
 
 ### Blockers/Concerns
 
-- ImageRenderer PDF generation works in simulator -- still needs real device verification
-- Bundle Identifier must be changed from com.spraycalculator.app to proper reverse-domain in plan 03-02
+None -- all blockers resolved:
+- ImageRenderer PDF generation: human-verified working in simulator
+- Bundle Identifier: fixed to com.wojciecholszak.kalkulatoroprysku
+- Physical device testing recommended before App Store submission
 
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Completed 03-01-PLAN.md (PDF Export)
+Stopped at: PROJECT COMPLETE -- all 8/8 plans executed
 Resume file: None
