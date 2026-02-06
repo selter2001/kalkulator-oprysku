@@ -7,57 +7,63 @@ struct SprayInputField: View {
     @Binding var value: String
     let icon: String
     var isShaking: Bool = false
-    
+
     @FocusState private var isFocused: Bool
-    
+    @ScaledMetric(relativeTo: .body) private var iconWidth: CGFloat = 24
+    @ScaledMetric(relativeTo: .body) private var horizontalPadding: CGFloat = 16
+    @ScaledMetric(relativeTo: .body) private var verticalPadding: CGFloat = 14
+    @ScaledMetric(relativeTo: .caption) private var unitPaddingH: CGFloat = 10
+    @ScaledMetric(relativeTo: .caption) private var unitPaddingV: CGFloat = 6
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Label
             Text(title)
                 .font(.subheadline)
                 .fontWeight(.medium)
-                .foregroundColor(.textSecondary)
-            
+                .foregroundStyle(Color(.textSecondary))
+
             // Input container
             HStack(spacing: 12) {
                 // Icon
                 Image(systemName: icon)
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundColor(isFocused ? .primaryGreen : .textSecondary)
-                    .frame(width: 24)
-                
+                    .font(.body.weight(.medium))
+                    .foregroundStyle(isFocused ? Color(.primaryGreen) : Color(.textSecondary))
+                    .frame(width: iconWidth)
+
                 // Text field
                 TextField("0", text: $value)
                     .keyboardType(.decimalPad)
-                    .font(.system(size: 18, weight: .semibold, design: .rounded))
-                    .foregroundColor(.textPrimary)
+                    .font(.body.weight(.semibold))
+                    .fontDesign(.rounded)
+                    .foregroundStyle(Color(.textPrimary))
                     .focused($isFocused)
-                
+
                 // Unit label
                 Text(unit)
                     .font(.subheadline)
                     .fontWeight(.medium)
-                    .foregroundColor(.textSecondary)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 6)
+                    .foregroundStyle(Color(.textSecondary))
+                    .padding(.horizontal, unitPaddingH)
+                    .padding(.vertical, unitPaddingV)
                     .background(
                         Capsule()
-                            .fill(Color.backgroundLight)
+                            .fill(Color(.backgroundSecondary))
                     )
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 14)
+            .padding(.horizontal, horizontalPadding)
+            .padding(.vertical, verticalPadding)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.backgroundCard)
-                    .shadow(color: isFocused ? Color.primaryGreen.opacity(0.2) : Color.black.opacity(0.05),
+                    .fill(Color(.backgroundCard))
+                    .shadow(color: isFocused ? Color(.primaryGreen).opacity(0.2) : Color(.textPrimary).opacity(0.05),
                             radius: isFocused ? 8 : 4,
                             x: 0,
                             y: 2)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(isFocused ? Color.primaryGreen : Color.clear, lineWidth: 2)
+                    .stroke(isFocused ? Color(.primaryGreen) : Color.clear, lineWidth: 2)
             )
             .offset(x: isShaking ? -10 : 0)
         }
@@ -73,58 +79,61 @@ struct ResultCard: View {
     let unit: String
     var detail: String? = nil
     var delay: Double = 0
-    
+
     @State private var isVisible = false
-    
+    @ScaledMetric(relativeTo: .title2) private var iconCircleSize: CGFloat = 50
+    @ScaledMetric(relativeTo: .body) private var cardPadding: CGFloat = 16
+
     var body: some View {
         HStack(spacing: 16) {
             // Icon circle
             ZStack {
                 Circle()
-                    .fill(LinearGradient.primaryGradient)
-                    .frame(width: 50, height: 50)
-                
+                    .fill(AppGradients.primaryGradient)
+                    .frame(width: iconCircleSize, height: iconCircleSize)
+
                 Text(icon)
-                    .font(.system(size: 24))
+                    .font(.title3)
             }
             .scaleEffect(isVisible ? 1 : 0.5)
             .opacity(isVisible ? 1 : 0)
-            
+
             // Content
             VStack(alignment: .leading, spacing: 4) {
                 Text(title)
                     .font(.subheadline)
-                    .foregroundColor(.textSecondary)
-                
+                    .foregroundStyle(Color(.textSecondary))
+
                 HStack(alignment: .firstTextBaseline, spacing: 4) {
                     Text(value)
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .foregroundColor(.textPrimary)
+                        .font(.title2.weight(.bold))
+                        .fontDesign(.rounded)
+                        .foregroundStyle(Color(.textPrimary))
                         .contentTransition(.numericText())
-                    
+
                     Text(unit)
                         .font(.subheadline)
                         .fontWeight(.medium)
-                        .foregroundColor(.textSecondary)
+                        .foregroundStyle(Color(.textSecondary))
                 }
-                
+
                 if let detail = detail {
                     Text(detail)
                         .font(.caption)
-                        .foregroundColor(.primaryGreen)
+                        .foregroundStyle(Color(.primaryGreen))
                         .fontWeight(.medium)
                 }
             }
             .offset(x: isVisible ? 0 : 20)
             .opacity(isVisible ? 1 : 0)
-            
+
             Spacer()
         }
-        .padding(16)
+        .padding(cardPadding)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.backgroundCard)
-                .shadow(color: Color.black.opacity(0.08), radius: 10, x: 0, y: 4)
+                .fill(Color(.backgroundCard))
+                .shadow(color: Color(.textPrimary).opacity(0.08), radius: 10, x: 0, y: 4)
         )
         .onAppear {
             withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(delay)) {
@@ -140,9 +149,10 @@ struct PrimaryButton: View {
     let icon: String
     let action: () -> Void
     var isLoading: Bool = false
-    
+
     @State private var isPressed = false
-    
+    @ScaledMetric(relativeTo: .body) private var verticalPadding: CGFloat = 18
+
     var body: some View {
         Button(action: {
             let impact = UIImpactFeedbackGenerator(style: .medium)
@@ -156,19 +166,20 @@ struct PrimaryButton: View {
                         .scaleEffect(0.9)
                 } else {
                     Image(systemName: icon)
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(.body.weight(.semibold))
                 }
-                
+
                 Text(title)
-                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                    .font(.body.weight(.bold))
+                    .fontDesign(.rounded)
             }
-            .foregroundColor(.white)
+            .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 18)
+            .padding(.vertical, verticalPadding)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(LinearGradient.primaryGradient)
-                    .shadow(color: Color.primaryGreen.opacity(0.4), radius: isPressed ? 4 : 12, x: 0, y: isPressed ? 2 : 6)
+                    .fill(AppGradients.primaryGradient)
+                    .shadow(color: Color(.primaryGreen).opacity(0.4), radius: isPressed ? 4 : 12, x: 0, y: isPressed ? 2 : 6)
             )
             .scaleEffect(isPressed ? 0.97 : 1)
         }
@@ -194,22 +205,23 @@ struct SecondaryButton: View {
     let title: String
     let icon: String
     let action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
             HStack(spacing: 8) {
                 Image(systemName: icon)
-                    .font(.system(size: 14, weight: .semibold))
-                
+                    .font(.subheadline.weight(.semibold))
+
                 Text(title)
-                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                    .font(.subheadline.weight(.semibold))
+                    .fontDesign(.rounded)
             }
-            .foregroundColor(.primaryGreen)
+            .foregroundStyle(Color(.primaryGreen))
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
             .background(
                 Capsule()
-                    .stroke(Color.primaryGreen, lineWidth: 1.5)
+                    .stroke(Color(.primaryGreen), lineWidth: 1.5)
             )
         }
     }
@@ -219,17 +231,18 @@ struct SecondaryButton: View {
 struct SectionHeader: View {
     let title: String
     let icon: String
-    
+
     var body: some View {
         HStack(spacing: 10) {
             Image(systemName: icon)
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundColor(.primaryGreen)
-            
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(Color(.primaryGreen))
+
             Text(title)
-                .font(.system(size: 18, weight: .bold, design: .rounded))
-                .foregroundColor(.textPrimary)
-            
+                .font(.headline)
+                .fontDesign(.rounded)
+                .foregroundStyle(Color(.textPrimary))
+
             Spacer()
         }
         .padding(.horizontal, 4)
