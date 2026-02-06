@@ -1,0 +1,102 @@
+# Roadmap: Kalkulator Oprysku
+
+## Overview
+
+Transform an existing 12-file flat SwiftUI spray calculator into an App Store-ready professional app. The work divides into three phases: first restructure into MVVM with clean architecture and complete the missing calculation features, then apply a coordinated visual theme system for dark mode and field readiness, and finally add PDF export and package everything for App Store submission. Each phase delivers a coherent, verifiable capability that builds on the previous one.
+
+## Phases
+
+**Phase Numbering:**
+- Integer phases (1, 2, 3): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+
+Decimal phases appear between their surrounding integers in numeric order.
+
+- [ ] **Phase 1: Foundation & MVVM** - Restructure codebase into MVVM, migrate to @Observable, fix localization bugs, add per-tank composition calculations
+- [ ] **Phase 2: Visual Polish** - Coordinated dark mode via Asset Catalog, Dynamic Type support, field-ready high-contrast styling
+- [ ] **Phase 3: Export & App Store Prep** - PDF export with ImageRenderer, About view, README/LICENSE, zero warnings, correct Bundle ID
+
+## Phase Details
+
+### Phase 1: Foundation & MVVM
+**Goal**: Users get accurate per-tank composition breakdowns (water + chemical for full and partial tanks) from a cleanly architected MVVM app with all localization bugs fixed
+**Depends on**: Nothing (first phase)
+**Requirements**: CALC-01, CALC-02, CALC-03, UI-04, FIX-01, FIX-02, FIX-03, FIX-04, FIX-05
+**Success Criteria** (what must be TRUE):
+  1. After calculating, user sees how many liters of water and how many liters of chemical to pour into each full tank
+  2. After calculating, user sees how many liters of water and how many liters of chemical to pour into the last partial tank
+  3. After calculating, user sees total amount of chemical to buy for the entire field
+  4. Switching app language to English shows fully English UI on every screen -- no hardcoded Polish text remains in history rows or settings
+  5. All existing features work identically: history, favorites, tractor animation, unit switching, input validation with haptic feedback
+**Plans**: TBD
+
+Plans:
+- [ ] 01-01: File restructuring, iOS 17+ target, @Observable migration
+- [ ] 01-02: MVVM extraction (CalcViewModel, SprayCalculator service, per-tank composition logic)
+- [ ] 01-03: Localization fixes (HistoryRowView, SettingsView) and integration verification
+
+### Phase 2: Visual Polish
+**Goal**: App looks professional in both light and dark mode with high-contrast field-ready styling that remains readable in bright sunlight and at all Dynamic Type sizes
+**Depends on**: Phase 1 (MVVM structure must be in place before replacing colors across all views)
+**Requirements**: UI-01, UI-02, UI-03
+**Success Criteria** (what must be TRUE):
+  1. Toggling iOS dark mode produces a fully adapted UI with no white-on-white or invisible text on any screen
+  2. Setting Dynamic Type to maximum accessibility size keeps all screens usable -- no text clipping, no overlapping elements, all content scrollable
+  3. In bright outdoor light, all input labels, buttons, and result numbers are clearly readable due to high-contrast field-ready color palette
+  4. No hardcoded Color literals remain in any view file -- all colors reference Asset Catalog semantic names
+**Plans**: TBD
+
+Plans:
+- [ ] 02-01: Asset Catalog color system design and AppColors/AppFonts/AppSpacing theme layer
+- [ ] 02-02: Replace all hardcoded colors across views, verify dark mode and Dynamic Type at max size
+
+### Phase 3: Export & App Store Prep
+**Goal**: Users can export calculation results as a professional PDF document, view author information, and the app is packaged for App Store submission with zero warnings
+**Depends on**: Phase 1 (clean SprayResult model for PDF data), Phase 2 (styled views inform PDF design choices)
+**Requirements**: EXP-01, EXP-02, EXP-03, EXP-04
+**Success Criteria** (what must be TRUE):
+  1. User can tap an export button after calculating and receive a shareable PDF containing inputs, results, per-tank breakdown, date, and author signature "Wojciech Olszak"
+  2. User can open an "About" screen showing author name, app version, and contact information
+  3. Repository contains a professional README.md with build instructions and screenshot placeholders, plus an MIT LICENSE file
+  4. Project builds with zero Xcode warnings, correct Bundle Identifier, and deploys successfully to a physical iPhone
+**Plans**: TBD
+
+Plans:
+- [ ] 03-01: PDFExportService, PDFContentView, ShareLink integration
+- [ ] 03-02: AboutView, README.md, LICENSE, Bundle ID fix, zero-warnings cleanup
+
+## Coverage
+
+All 16 v1 requirements mapped:
+
+| REQ | Phase | Category |
+|-----|-------|----------|
+| CALC-01 | Phase 1 | Obliczenia |
+| CALC-02 | Phase 1 | Obliczenia |
+| CALC-03 | Phase 1 | Obliczenia |
+| UI-01 | Phase 2 | UI/UX |
+| UI-02 | Phase 2 | UI/UX |
+| UI-03 | Phase 2 | UI/UX |
+| UI-04 | Phase 1 | UI/UX |
+| EXP-01 | Phase 3 | Eksport |
+| EXP-02 | Phase 3 | Eksport |
+| EXP-03 | Phase 3 | Eksport |
+| EXP-04 | Phase 3 | Eksport |
+| FIX-01 | Phase 1 | Naprawy |
+| FIX-02 | Phase 1 | Naprawy |
+| FIX-03 | Phase 1 | Naprawy |
+| FIX-04 | Phase 1 | Naprawy |
+| FIX-05 | Phase 1 | Naprawy |
+
+**Mapped: 16/16**
+
+## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 1 -> 2 -> 3
+
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Foundation & MVVM | 0/3 | Not started | - |
+| 2. Visual Polish | 0/2 | Not started | - |
+| 3. Export & App Store Prep | 0/2 | Not started | - |
