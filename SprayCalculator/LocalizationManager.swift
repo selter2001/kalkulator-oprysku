@@ -190,4 +190,29 @@ class LocalizationManager {
     var totalChemicalToBuy: String {
         currentLanguage == .polish ? "Środek do kupienia" : "Chemical to buy"
     }
+
+    // MARK: - Export & About (EXP-01, EXP-02)
+    var exportPDF: String {
+        currentLanguage == .polish ? "Eksportuj PDF" : "Export PDF"
+    }
+
+    var about: String {
+        currentLanguage == .polish ? "O aplikacji" : "About"
+    }
+
+    var author: String {
+        currentLanguage == .polish ? "Autor" : "Author"
+    }
+
+    var contact: String {
+        currentLanguage == .polish ? "Kontakt" : "Contact"
+    }
+
+    var pdfSignature: String {
+        currentLanguage == .polish ? "Wygenerowano w aplikacji autorstwa Wojciecha Olszaka" : "Generated in app by Wojciech Olszak"
+    }
+
+    var parameters: String {
+        currentLanguage == .polish ? "Parametry" : "Parameters"
+    }
 }
