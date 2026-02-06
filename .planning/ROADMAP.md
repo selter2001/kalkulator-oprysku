@@ -28,12 +28,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. After calculating, user sees total amount of chemical to buy for the entire field
   4. Switching app language to English shows fully English UI on every screen -- no hardcoded Polish text remains in history rows or settings
   5. All existing features work identically: history, favorites, tractor animation, unit switching, input validation with haptic feedback
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: File restructuring, iOS 17+ target, @Observable migration
-- [ ] 01-02: MVVM extraction (CalcViewModel, SprayCalculator service, per-tank composition logic)
-- [ ] 01-03: Localization fixes (HistoryRowView, SettingsView) and integration verification
+- [ ] 01-01-PLAN.md — Skopiowanie kodu, usuniecie martwego pliku, migracja @Observable + DI
+- [ ] 01-02-PLAN.md — CalcViewModel, SprayCalculatorService, per-tank composition w wynikach
+- [ ] 01-03-PLAN.md — Naprawa lokalizacji (HistoryRowView, SettingsView, TractorAnimation) + weryfikacja
 
 ### Phase 2: Visual Polish
 **Goal**: App looks professional in both light and dark mode with high-contrast field-ready styling that remains readable in bright sunlight and at all Dynamic Type sizes
