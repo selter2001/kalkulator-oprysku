@@ -45,11 +45,11 @@ Plans:
   2. Setting Dynamic Type to maximum accessibility size keeps all screens usable -- no text clipping, no overlapping elements, all content scrollable
   3. In bright outdoor light, all input labels, buttons, and result numbers are clearly readable due to high-contrast field-ready color palette
   4. No hardcoded Color literals remain in any view file -- all colors reference Asset Catalog semantic names
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: Asset Catalog color system design and AppColors/AppFonts/AppSpacing theme layer
-- [ ] 02-02: Replace all hardcoded colors across views, verify dark mode and Dynamic Type at max size
+- [ ] 02-01-PLAN.md — Asset Catalog color sets (18 colorsets with light/dark), AppGradients.swift, Components.swift full migration
+- [ ] 02-02-PLAN.md — Migrate remaining 5 views, delete Colors.swift, human-verify dark mode + Dynamic Type + readability
 
 ### Phase 3: Export & App Store Prep
 **Goal**: Users can export calculation results as a professional PDF document, view author information, and the app is packaged for App Store submission with zero warnings
