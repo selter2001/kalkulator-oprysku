@@ -60,11 +60,11 @@ Plans:
   2. User can open an "About" screen showing author name, app version, and contact information
   3. Repository contains a professional README.md with build instructions and screenshot placeholders, plus an MIT LICENSE file
   4. Project builds with zero Xcode warnings, correct Bundle Identifier, and deploys successfully to a physical iPhone
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: PDFExportService, PDFContentView, ShareLink integration
-- [ ] 03-02: AboutView, README.md, LICENSE, Bundle ID fix, zero-warnings cleanup
+- [ ] 03-01-PLAN.md — PDFExportService + PDFContentView + ShareLink + 6 nowych lokalizacji
+- [ ] 03-02-PLAN.md — AboutView, README.md, LICENSE, Bundle ID fix, zero-warnings, human-verify
 
 ## Coverage
 
