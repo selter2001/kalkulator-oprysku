@@ -4,18 +4,40 @@ struct ContentView: View {
     @Environment(LocalizationManager.self) private var localization
     @Environment(HistoryManager.self) private var historyManager
     @Environment(FavoritesManager.self) private var favoritesManager
-    
+
     @State private var selectedTab = 0
     @State private var calculatorViewKey = UUID()
-    
+
     // Reference to calculator view for loading favorites
     @State private var selectedFavorite: FavoriteConfiguration?
-    
+
+    // CalcViewModel — created lazily because @Environment is not available in init()
+    @State private var viewModel: CalcViewModel?
+
     var body: some View {
+        Group {
+            if let viewModel {
+                mainContent(viewModel: viewModel)
+            } else {
+                Color.clear
+            }
+        }
+        .task {
+            if viewModel == nil {
+                viewModel = CalcViewModel(historyManager: historyManager)
+            }
+        }
+        .onChange(of: localization.currentLanguage) {
+            // Force refresh when language changes
+            calculatorViewKey = UUID()
+        }
+    }
+
+    private func mainContent(viewModel: CalcViewModel) -> some View {
         TabView(selection: $selectedTab) {
             // Calculator Tab
             NavigationStack {
-                CalculatorViewWrapper(selectedFavorite: $selectedFavorite)
+                CalculatorViewWrapper(viewModel: viewModel, selectedFavorite: $selectedFavorite)
                     .id(calculatorViewKey)
                     .navigationTitle(localization.appTitle)
                     .navigationBarTitleDisplayMode(.large)
@@ -36,7 +58,7 @@ struct ContentView: View {
                 }
             }
             .tag(0)
-            
+
             // History Tab
             NavigationStack {
                 HistoryView()
@@ -51,7 +73,7 @@ struct ContentView: View {
                 }
             }
             .tag(1)
-            
+
             // Favorites Tab
             NavigationStack {
                 FavoritesView { favorite in
@@ -71,60 +93,44 @@ struct ContentView: View {
             .tag(2)
         }
         .tint(.primaryGreen)
-        .onChange(of: localization.currentLanguage) {
-            // Force refresh when language changes
-            calculatorViewKey = UUID()
-        }
     }
 }
 
 // MARK: - Calculator View Wrapper
 struct CalculatorViewWrapper: View {
+    @Bindable var viewModel: CalcViewModel
     @Binding var selectedFavorite: FavoriteConfiguration?
-    
+
     var body: some View {
-        CalculatorViewWithFavorite(selectedFavorite: $selectedFavorite)
+        CalculatorViewWithFavorite(viewModel: viewModel, selectedFavorite: $selectedFavorite)
     }
 }
 
 struct CalculatorViewWithFavorite: View {
+    @Bindable var viewModel: CalcViewModel
     @Environment(LocalizationManager.self) private var localization
-    @Environment(HistoryManager.self) private var historyManager
     @Environment(FavoritesManager.self) private var favoritesManager
-    
+
     @Binding var selectedFavorite: FavoriteConfiguration?
-    
-    // Input values
-    @State private var fieldArea: String = ""
-    @State private var sprayRate: String = ""
-    @State private var chemicalRate: String = ""
-    @State private var tankCapacity: String = ""
-    @State private var selectedAreaUnit: AreaUnit = .hectares
-    
-    // UI State
-    @State private var calculationResult: SprayCalculation?
-    @State private var showResults = false
-    @State private var showAnimation = false
+
+    // UI-only state
     @State private var showSaveDialog = false
     @State private var favoriteName: String = ""
-    @State private var shakingFields: Set<String> = []
-    @State private var showError = false
-    @State private var errorMessage = ""
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 // Area unit picker
                 areaUnitPicker
-                
+
                 // Input fields
                 inputFieldsSection
-                
+
                 // Action buttons
                 actionButtons
-                
+
                 // Results
-                if showResults, let result = calculationResult {
+                if viewModel.showResults, let result = viewModel.calculationResult {
                     resultsSection(result: result)
                 }
             }
@@ -133,11 +139,10 @@ struct CalculatorViewWithFavorite: View {
         }
         .background(LinearGradient.backgroundGradient.ignoresSafeArea())
         .overlay {
-            if showAnimation {
+            if viewModel.showAnimation {
                 TractorSprayingAnimation {
                     withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                        showAnimation = false
-                        showResults = true
+                        viewModel.onAnimationComplete()
                     }
                 }
                 .transition(.opacity)
@@ -146,17 +151,17 @@ struct CalculatorViewWithFavorite: View {
         .sheet(isPresented: $showSaveDialog) {
             saveToFavoritesSheet
         }
-        .alert(errorMessage, isPresented: $showError) {
+        .alert(viewModel.errorMessage, isPresented: $viewModel.showError) {
             Button("OK", role: .cancel) { }
         }
         .onChange(of: selectedFavorite) {
             if let favorite = selectedFavorite {
-                loadFavorite(favorite)
+                viewModel.loadFavorite(favorite)
                 selectedFavorite = nil
             }
         }
     }
-    
+
     // MARK: - Area Unit Picker
     private var areaUnitPicker: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -164,8 +169,8 @@ struct CalculatorViewWithFavorite: View {
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.textSecondary)
-            
-            Picker("", selection: $selectedAreaUnit) {
+
+            Picker("", selection: $viewModel.selectedAreaUnit) {
                 ForEach(AreaUnit.allCases, id: \.self) { unit in
                     Text(unit.displayName).tag(unit)
                 }
@@ -173,61 +178,67 @@ struct CalculatorViewWithFavorite: View {
             .pickerStyle(.segmented)
         }
     }
-    
+
     // MARK: - Input Fields
     private var inputFieldsSection: some View {
         VStack(spacing: 16) {
             SprayInputField(
                 title: localization.fieldArea,
-                unit: selectedAreaUnit.displayName,
-                value: $fieldArea,
+                unit: viewModel.selectedAreaUnit.displayName,
+                value: $viewModel.fieldAreaText,
                 icon: "square.dashed",
-                isShaking: shakingFields.contains("fieldArea")
+                isShaking: viewModel.shakingFields.contains("fieldArea")
             )
-            
+
             SprayInputField(
                 title: localization.sprayRate,
                 unit: localization.sprayRateUnit,
-                value: $sprayRate,
+                value: $viewModel.sprayRateText,
                 icon: "drop.fill",
-                isShaking: shakingFields.contains("sprayRate")
+                isShaking: viewModel.shakingFields.contains("sprayRate")
             )
-            
+
             SprayInputField(
                 title: localization.chemicalRate,
                 unit: localization.chemicalRateUnit,
-                value: $chemicalRate,
+                value: $viewModel.chemicalRateText,
                 icon: "flask.fill",
-                isShaking: shakingFields.contains("chemicalRate")
+                isShaking: viewModel.shakingFields.contains("chemicalRate")
             )
-            
+
             SprayInputField(
                 title: localization.tankCapacity,
                 unit: localization.tankCapacityUnit,
-                value: $tankCapacity,
+                value: $viewModel.tankCapacityText,
                 icon: "fuelpump.fill",
-                isShaking: shakingFields.contains("tankCapacity")
+                isShaking: viewModel.shakingFields.contains("tankCapacity")
             )
         }
     }
-    
+
     // MARK: - Action Buttons
     private var actionButtons: some View {
         VStack(spacing: 12) {
             PrimaryButton(
                 title: localization.calculate,
                 icon: "play.fill",
-                action: performCalculation
+                action: {
+                    viewModel.calculate(invalidValueError: localization.invalidValueError)
+                }
             )
-            
+
             HStack(spacing: 12) {
                 SecondaryButton(
                     title: localization.clear,
                     icon: "trash",
-                    action: clearFields
+                    action: {
+                        withAnimation {
+                            viewModel.clear()
+                        }
+                    }
                 )
-                
-                if calculationResult != nil {
+
+                if viewModel.calculationResult != nil {
                     SecondaryButton(
                         title: localization.saveToFavorites,
                         icon: "star",
@@ -237,41 +248,41 @@ struct CalculatorViewWithFavorite: View {
             }
         }
     }
-    
+
     // MARK: - Results Section
     private func resultsSection(result: SprayCalculation) -> some View {
         VStack(spacing: 16) {
             SectionHeader(title: localization.results, icon: "chart.bar.fill")
-            
+
             ResultCard(
                 icon: "💧",
                 title: localization.workingFluid,
-                value: formatNumber(result.totalWorkingFluid),
+                value: viewModel.formatNumber(result.totalWorkingFluid),
                 unit: localization.liters,
                 delay: 0.1
             )
-            
+
             ResultCard(
                 icon: "🧪",
                 title: localization.chemical,
-                value: formatNumber(result.totalChemical),
+                value: viewModel.formatNumber(result.totalChemical),
                 unit: localization.liters,
-                detail: "\(formatNumber(result.chemicalPerTank)) l / \(localization.tankCapacity.lowercased())",
+                detail: "\(viewModel.formatNumber(result.chemicalPerTank)) l / \(localization.tankCapacity.lowercased())",
                 delay: 0.2
             )
-            
+
             ResultCard(
                 icon: "🚜",
                 title: localization.tankFills,
-                value: tankFillsDescription(result),
+                value: viewModel.tankFillsDescription(result, fullTanksLabel: localization.fullTanks, partialTankLabel: localization.partialTank),
                 unit: "",
-                detail: result.hasPartialTank ? "\(localization.partialTank): \(formatNumber(result.partialTankVolume)) l" : nil,
+                detail: result.hasPartialTank ? "\(localization.partialTank): \(viewModel.formatNumber(result.partialTankVolume)) l" : nil,
                 delay: 0.3
             )
         }
         .transition(.move(edge: .bottom).combined(with: .opacity))
     }
-    
+
     // MARK: - Save Dialog
     private var saveToFavoritesSheet: some View {
         NavigationStack {
@@ -279,11 +290,11 @@ struct CalculatorViewWithFavorite: View {
                 Text(localization.saveToFavorites)
                     .font(.title2)
                     .fontWeight(.bold)
-                
+
                 TextField(localization.configurationName, text: $favoriteName)
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
-                
+
                 Button(localization.save) {
                     saveFavorite()
                 }
@@ -303,126 +314,19 @@ struct CalculatorViewWithFavorite: View {
         }
         .presentationDetents([.height(200)])
     }
-    
+
     // MARK: - Helper Methods
-    private func performCalculation() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        
-        let fields = validateFields()
-        guard fields.isValid else {
-            shakeInvalidFields(fields.invalidFields)
-            return
-        }
-        
-        guard let area = parseNumber(fieldArea),
-              let spray = parseNumber(sprayRate),
-              let chemical = parseNumber(chemicalRate),
-              let tank = parseNumber(tankCapacity) else {
-            errorMessage = localization.invalidValueError
-            showError = true
-            return
-        }
-        
-        let calculation = SprayCalculation(
-            fieldArea: area,
-            areaUnit: selectedAreaUnit,
-            sprayRate: spray,
-            chemicalRate: chemical,
-            tankCapacity: tank
-        )
-        
-        calculationResult = calculation
-        historyManager.addCalculation(calculation)
-        
-        withAnimation {
-            showResults = false
-            showAnimation = true
-        }
-    }
-    
-    private func validateFields() -> (isValid: Bool, invalidFields: [String]) {
-        var invalidFields: [String] = []
-        
-        if fieldArea.isEmpty { invalidFields.append("fieldArea") }
-        if sprayRate.isEmpty { invalidFields.append("sprayRate") }
-        if chemicalRate.isEmpty { invalidFields.append("chemicalRate") }
-        if tankCapacity.isEmpty { invalidFields.append("tankCapacity") }
-        
-        return (invalidFields.isEmpty, invalidFields)
-    }
-    
-    private func shakeInvalidFields(_ fields: [String]) {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.error)
-        
-        withAnimation(.default) {
-            shakingFields = Set(fields)
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation {
-                shakingFields.removeAll()
-            }
-        }
-    }
-    
-    private func clearFields() {
-        withAnimation {
-            fieldArea = ""
-            sprayRate = ""
-            chemicalRate = ""
-            tankCapacity = ""
-            calculationResult = nil
-            showResults = false
-        }
-    }
-    
     private func saveFavorite() {
         let favorite = FavoriteConfiguration(
             name: favoriteName,
-            sprayRate: parseNumber(sprayRate) ?? 0,
-            chemicalRate: parseNumber(chemicalRate) ?? 0,
-            tankCapacity: parseNumber(tankCapacity) ?? 0,
-            areaUnit: selectedAreaUnit
+            sprayRate: viewModel.parseNumber(viewModel.sprayRateText) ?? 0,
+            chemicalRate: viewModel.parseNumber(viewModel.chemicalRateText) ?? 0,
+            tankCapacity: viewModel.parseNumber(viewModel.tankCapacityText) ?? 0,
+            areaUnit: viewModel.selectedAreaUnit
         )
         favoritesManager.addFavorite(favorite)
         showSaveDialog = false
         favoriteName = ""
-    }
-    
-    private func loadFavorite(_ favorite: FavoriteConfiguration) {
-        withAnimation {
-            sprayRate = formatNumber(favorite.sprayRate)
-            chemicalRate = formatNumber(favorite.chemicalRate)
-            tankCapacity = formatNumber(favorite.tankCapacity)
-            selectedAreaUnit = favorite.areaUnit
-        }
-    }
-    
-    private func parseNumber(_ string: String) -> Double? {
-        let normalized = string.replacingOccurrences(of: ",", with: ".")
-        return Double(normalized)
-    }
-    
-    private func formatNumber(_ value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 0
-        formatter.decimalSeparator = ","
-        formatter.groupingSeparator = " "
-        return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
-    }
-    
-    private func tankFillsDescription(_ result: SprayCalculation) -> String {
-        if result.fullTanks > 0 && result.hasPartialTank {
-            return "\(result.fullTanks) \(localization.fullTanks) + 1 \(localization.partialTank)"
-        } else if result.fullTanks > 0 {
-            return "\(result.fullTanks) \(localization.fullTanks)"
-        } else if result.hasPartialTank {
-            return "1 \(localization.partialTank)"
-        }
-        return "0"
     }
 }
 
