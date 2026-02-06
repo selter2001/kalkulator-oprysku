@@ -10,27 +10,27 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 1 of 3 (Foundation & MVVM)
-Plan: 2 of 4 in current phase
+Plan: 3 of 4 in current phase
 Status: In progress
-Last activity: 2026-02-06 -- Completed 01-02-PLAN.md
+Last activity: 2026-02-06 -- Completed 01-03-PLAN.md
 
-Progress: [██░░░░░░░░] 25% (2/8 plans)
+Progress: [███░░░░░░░] 37% (3/8 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 5min
+- Total plans completed: 3
+- Average duration: 4min
 - Total execution time: 0.2 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1. Foundation & MVVM | 2/4 | 10min | 5min |
+| 1. Foundation & MVVM | 3/4 | 12min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (4min)
+- Last 5 plans: 01-01 (6min), 01-02 (4min), 01-03 (2min)
 - Trend: Accelerating
 
 *Updated after each plan completion*
@@ -52,6 +52,9 @@ Recent decisions affecting current work:
 - [01-02]: CalcViewModel passes localization strings as method parameters (decoupled from LocalizationManager)
 - [01-02]: parseNumber() and formatNumber() are public on CalcViewModel (view needs them)
 - [01-02]: Haptic feedback lives in ViewModel alongside validation logic
+- [01-03]: CalcViewModel created lazily in ContentView via .task{} -- @Environment not available in init()
+- [01-03]: tankFillsDescription passes localization labels as parameters (VM decoupled from LocalizationManager)
+- [01-03]: @Bindable var viewModel pattern for thin SwiftUI views established
 
 ### Pending Todos
 
@@ -64,6 +67,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-06 09:45 UTC
-Stopped at: Completed 01-02-PLAN.md
+Last session: 2026-02-06 09:49 UTC
+Stopped at: Completed 01-03-PLAN.md
 Resume file: None
