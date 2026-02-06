@@ -14,7 +14,6 @@
 		A1000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005 /* Models.swift */; };
 		A1000006 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006 /* HistoryManager.swift */; };
 		A1000007 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007 /* FavoritesManager.swift */; };
-		A1000008 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008 /* Colors.swift */; };
 		A1000009 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009 /* Components.swift */; };
 		A1000010 /* TractorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010 /* TractorAnimation.swift */; };
 		A1000012 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012 /* HistoryView.swift */; };
@@ -33,7 +32,6 @@
 		B1000005 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		B1000006 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
 		B1000007 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
-		B1000008 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B1000009 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		B1000010 /* TractorAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TractorAnimation.swift; sourceTree = "<group>"; };
 		B1000012 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				B1000005 /* Models.swift */,
 				B1000006 /* HistoryManager.swift */,
 				B1000007 /* FavoritesManager.swift */,
-				B1000008 /* Colors.swift */,
 				B1000009 /* Components.swift */,
 				B1000010 /* TractorAnimation.swift */,
 				B1000012 /* HistoryView.swift */,
@@ -179,7 +176,6 @@
 				A1000005 /* Models.swift in Sources */,
 				A1000006 /* HistoryManager.swift in Sources */,
 				A1000007 /* FavoritesManager.swift in Sources */,
-				A1000008 /* Colors.swift in Sources */,
 				A1000009 /* Components.swift in Sources */,
 				A1000010 /* TractorAnimation.swift in Sources */,
 				A1000012 /* HistoryView.swift in Sources */,
