@@ -26,21 +26,21 @@ Rolnik w polu musi szybko i bezbłędnie wiedzieć: ile środka i wody wlać do 
 
 ### Active
 
-- [ ] Skład każdego zbiornika (ile wody + ile środka do pełnego i niepełnego)
+- [x] Skład każdego zbiornika (ile wody + ile środka do pełnego i niepełnego) — Phase 1
 - [ ] Eksport wyników do PDF (ImageRenderer, data, podpis autora)
 - [ ] Widok "O aplikacji" z informacją o autorze
 - [ ] Obsługa trybu ciemnego (Dark Mode)
 - [ ] Dynamic Type — czytelne czcionki na każdym rozmiarze
 - [ ] Styl "Field-Ready" — wysoki kontrast, czytelność w polu
-- [ ] Refaktor do MVVM (logika z widoków do ViewModel)
-- [ ] Uporządkowanie struktury plików (Model, View, ViewModel)
+- [x] Refaktor do MVVM (logika z widoków do ViewModel) — Phase 1
+- [x] Uporządkowanie struktury plików (Model, View, ViewModel) — Phase 1
 - [ ] Zero warnings w Xcode
 - [ ] Bundle Identifier pod deployment na fizyczne urządzenie
-- [ ] iOS 17+ deployment target
+- [x] iOS 17+ deployment target — Phase 1
 - [ ] Profesjonalny README.md z instrukcją i miejscem na screenshoty
 - [ ] Licencja MIT
-- [ ] Naprawienie hardcoded polskiego tekstu w HistoryRowView
-- [ ] Commity w języku polskim
+- [x] Naprawienie hardcoded polskiego tekstu w HistoryRowView — Phase 1
+- [x] Commity w języku polskim — Phase 1
 
 ### Out of Scope
 

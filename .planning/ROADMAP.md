@@ -12,7 +12,7 @@ Transform an existing 12-file flat SwiftUI spray calculator into an App Store-re
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & MVVM** - Restructure codebase into MVVM, migrate to @Observable, fix localization bugs, add per-tank composition calculations
+- [x] **Phase 1: Foundation & MVVM** - Restructure codebase into MVVM, migrate to @Observable, fix localization bugs, add per-tank composition calculations
 - [ ] **Phase 2: Visual Polish** - Coordinated dark mode via Asset Catalog, Dynamic Type support, field-ready high-contrast styling
 - [ ] **Phase 3: Export & App Store Prep** - PDF export with ImageRenderer, About view, README/LICENSE, zero warnings, correct Bundle ID
 
@@ -31,10 +31,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Skopiowanie kodu, usuniecie martwego pliku, migracja @Observable + DI
-- [ ] 01-02-PLAN.md — SprayCalculatorService, rozszerzenie modelu, CalcViewModel z logika obliczen
-- [ ] 01-03-PLAN.md — Integracja CalcViewModel z widokiem, 3 nowe ResultCards (per-tank composition)
-- [ ] 01-04-PLAN.md — Naprawa lokalizacji (HistoryRowView, SettingsView, TractorAnimation) + weryfikacja
+- [x] 01-01-PLAN.md — Skopiowanie kodu, usuniecie martwego pliku, migracja @Observable + DI
+- [x] 01-02-PLAN.md — SprayCalculatorService, rozszerzenie modelu, CalcViewModel z logika obliczen
+- [x] 01-03-PLAN.md — Integracja CalcViewModel z widokiem, 3 nowe ResultCards (per-tank composition)
+- [x] 01-04-PLAN.md — Naprawa lokalizacji (HistoryRowView, SettingsView, TractorAnimation) + weryfikacja
 
 ### Phase 2: Visual Polish
 **Goal**: App looks professional in both light and dark mode with high-contrast field-ready styling that remains readable in bright sunlight and at all Dynamic Type sizes
@@ -98,6 +98,6 @@ Phases execute in numeric order: 1 -> 2 -> 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & MVVM | 0/4 | Not started | - |
+| 1. Foundation & MVVM | 4/4 | COMPLETE | 2026-02-06 |
 | 2. Visual Polish | 0/2 | Not started | - |
 | 3. Export & App Store Prep | 0/2 | Not started | - |
