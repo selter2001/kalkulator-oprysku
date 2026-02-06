@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-06)
 
 **Core value:** Rolnik w polu musi szybko i bezblednie wiedziec: ile srodka i wody wlac do kazdego zbiornika opryskiwacza
-**Current focus:** Phase 1 COMPLETE — ready for Phase 2 (Visual Polish)
+**Current focus:** Phase 2 (Visual Polish) — Plan 01 complete, continuing
 
 ## Current Position
 
-Phase: 1 of 3 (Foundation & MVVM) — COMPLETE
-Plan: 4 of 4 in current phase — ALL DONE
-Status: Phase 1 verified and approved by user
-Last activity: 2026-02-06 -- Phase 1 human verification APPROVED
+Phase: 2 of 3 (Visual Polish)
+Plan: 1 of 4 in current phase
+Status: In progress
+Last activity: 2026-02-06 -- Completed 02-01-PLAN.md
 
-Progress: [████░░░░░░] 50% (4/8 plans)
+Progress: [█████░░░░░] 62% (5/8 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 4min
-- Total execution time: 0.25 hours
+- Total execution time: 0.30 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Foundation & MVVM | 4/4 | 15min | 4min |
+| 2. Visual Polish | 1/4 | 3min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min), 01-02 (4min), 01-03 (2min), 01-04 (3min)
-- Trend: Accelerating
+- Last 5 plans: 01-02 (4min), 01-03 (2min), 01-04 (3min), 02-01 (3min)
+- Trend: Stable fast
 
 *Updated after each plan completion*
 
@@ -57,10 +58,15 @@ Recent decisions affecting current work:
 - [01-03]: @Bindable var viewModel pattern for thin SwiftUI views established
 - [01-04]: Reuse existing workingFluid/chemical/tankFills keys in HistoryRowView -- no duplicates
 - [01-04]: TractorSprayingAnimation takes calculatingText as init param (decoupled from @Environment)
+- [02-01]: provides-namespace: false for Colors subfolder -- Color(.primaryGreen) without prefix
+- [02-01]: AppGradients computed static vars -- Asset Catalog colors resolve dynamically per appearance
+- [02-01]: Color(.textPrimary).opacity() replaces Color.black.opacity() for dark-mode-adaptive shadows
+- [02-01]: .foregroundStyle(.white) kept on PrimaryButton -- sufficient contrast on green gradient in both modes
 
 ### Pending Todos
 
 - Shake animation visual quality to improve (noted during Phase 1 verification -- Phase 2 scope)
+- Delete Colors.swift after all views migrated to Color(.name) syntax (later in Phase 2)
 
 ### Blockers/Concerns
 
@@ -70,5 +76,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-06
-Stopped at: Phase 1 COMPLETE -- ready for Phase 2 planning
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
