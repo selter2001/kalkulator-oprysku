@@ -20,6 +20,7 @@
 		A1000012 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012; };
 		A1000013 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013; };
 		A1000014 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014; };
+		A1000015 /* SprayCalculatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B1000012 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B1000013 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B1000014 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B1000015 /* SprayCalculatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/SprayCalculatorService.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				B1000012 /* HistoryView.swift */,
 				B1000013 /* FavoritesView.swift */,
 				B1000014 /* SettingsView.swift */,
+				B1000015 /* SprayCalculatorService.swift */,
 				B1000003 /* Assets.xcassets */,
 			);
 			path = SprayCalculator;
@@ -168,6 +171,7 @@
 				A1000012 /* HistoryView.swift in Sources */,
 				A1000013 /* FavoritesView.swift in Sources */,
 				A1000014 /* SettingsView.swift in Sources */,
+				A1000015 /* SprayCalculatorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

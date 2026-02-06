@@ -63,6 +63,16 @@ struct SprayCalculation: Identifiable, Codable {
         guard totalWorkingFluid > 0 else { return 0 }
         return (chemicalRate / sprayRate) * partialTankVolume
     }
+
+    /// Litry wody do wlania do kazdego pelnego zbiornika
+    var waterPerFullTank: Double {
+        tankCapacity - chemicalPerTank
+    }
+
+    /// Litry wody do wlania do ostatniego niepelnego zbiornika
+    var waterForPartialTank: Double {
+        partialTankVolume - chemicalForPartialTank
+    }
     
     init(
         id: UUID = UUID(),
