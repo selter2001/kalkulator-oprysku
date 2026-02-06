@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-06)
 ## Current Position
 
 Phase: 1 of 3 (Foundation & MVVM)
-Plan: 1 of 4 in current phase
+Plan: 2 of 4 in current phase
 Status: In progress
-Last activity: 2026-02-06 -- Completed 01-01-PLAN.md
+Last activity: 2026-02-06 -- Completed 01-02-PLAN.md
 
-Progress: [█░░░░░░░░░] 12% (1/8 plans)
+Progress: [██░░░░░░░░] 25% (2/8 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 6min
-- Total execution time: 0.1 hours
+- Total plans completed: 2
+- Average duration: 5min
+- Total execution time: 0.2 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 1. Foundation & MVVM | 1/4 | 6min | 6min |
+| 1. Foundation & MVVM | 2/4 | 10min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (6min)
-- Trend: First plan, baseline established
+- Last 5 plans: 01-01 (6min), 01-02 (4min)
+- Trend: Accelerating
 
 *Updated after each plan completion*
 
@@ -48,6 +48,10 @@ Recent decisions affecting current work:
 - [01-01]: HistoryManager and FavoritesManager use import Foundation instead of import SwiftUI
 - [01-01]: FavoriteConfiguration needs Equatable conformance for onChange(of:) on current SDK
 - [01-01]: @Observable + @Environment(Type.self) pattern established as DI standard
+- [01-02]: SprayCalculatorService as struct (not class) -- stateless pure computation
+- [01-02]: CalcViewModel passes localization strings as method parameters (decoupled from LocalizationManager)
+- [01-02]: parseNumber() and formatNumber() are public on CalcViewModel (view needs them)
+- [01-02]: Haptic feedback lives in ViewModel alongside validation logic
 
 ### Pending Todos
 
@@ -60,6 +64,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-06 09:37 UTC
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-02-06 09:45 UTC
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None
