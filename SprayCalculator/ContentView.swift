@@ -279,6 +279,37 @@ struct CalculatorViewWithFavorite: View {
                 detail: result.hasPartialTank ? "\(localization.partialTank): \(viewModel.formatNumber(result.partialTankVolume)) l" : nil,
                 delay: 0.3
             )
+
+            // CALC-01: Full tank composition (water + chemical)
+            ResultCard(
+                icon: "🪣",
+                title: localization.fullTankComposition,
+                value: "\(viewModel.formatNumber(result.waterPerFullTank)) l + \(viewModel.formatNumber(result.chemicalPerTank)) l",
+                unit: "",
+                detail: "\(localization.water) + \(localization.chemical)",
+                delay: 0.4
+            )
+
+            // CALC-02: Partial tank composition (conditional)
+            if result.hasPartialTank {
+                ResultCard(
+                    icon: "🫗",
+                    title: localization.partialTankComposition,
+                    value: "\(viewModel.formatNumber(result.waterForPartialTank)) l + \(viewModel.formatNumber(result.chemicalForPartialTank)) l",
+                    unit: "",
+                    detail: "\(localization.water) + \(localization.chemical)",
+                    delay: 0.5
+                )
+            }
+
+            // CALC-03: Total chemical to buy
+            ResultCard(
+                icon: "🛒",
+                title: localization.totalChemicalToBuy,
+                value: viewModel.formatNumber(result.totalChemical),
+                unit: localization.liters,
+                delay: 0.6
+            )
         }
         .transition(.move(edge: .bottom).combined(with: .opacity))
     }

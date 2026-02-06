@@ -159,4 +159,21 @@ class LocalizationManager {
     var areaUnitLabel: String {
         currentLanguage == .polish ? "Jednostka powierzchni" : "Area unit"
     }
+
+    // MARK: - Per-tank composition (CALC-01, CALC-02, CALC-03)
+    var fullTankComposition: String {
+        currentLanguage == .polish ? "Skład pełnego zbiornika" : "Full tank composition"
+    }
+
+    var partialTankComposition: String {
+        currentLanguage == .polish ? "Skład niepełnego zbiornika" : "Partial tank composition"
+    }
+
+    var water: String {
+        currentLanguage == .polish ? "Woda" : "Water"
+    }
+
+    var totalChemicalToBuy: String {
+        currentLanguage == .polish ? "Środek do kupienia" : "Chemical to buy"
+    }
 }
