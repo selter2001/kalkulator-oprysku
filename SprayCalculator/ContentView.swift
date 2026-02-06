@@ -45,7 +45,7 @@ struct ContentView: View {
                         ToolbarItem(placement: .topBarTrailing) {
                             NavigationLink(destination: SettingsView()) {
                                 Image(systemName: "gearshape.fill")
-                                    .foregroundColor(.primaryGreen)
+                                    .foregroundStyle(Color(.primaryGreen))
                             }
                         }
                     }
@@ -92,7 +92,7 @@ struct ContentView: View {
             }
             .tag(2)
         }
-        .tint(.primaryGreen)
+        .tint(Color(.primaryGreen))
     }
 }
 
@@ -137,7 +137,7 @@ struct CalculatorViewWithFavorite: View {
             .padding(.horizontal, 20)
             .padding(.vertical, 16)
         }
-        .background(LinearGradient.backgroundGradient.ignoresSafeArea())
+        .background(AppGradients.backgroundGradient.ignoresSafeArea())
         .overlay {
             if viewModel.showAnimation {
                 TractorSprayingAnimation(calculatingText: localization.calculating) {
@@ -168,7 +168,7 @@ struct CalculatorViewWithFavorite: View {
             Text(localization.areaUnitLabel)
                 .font(.subheadline)
                 .fontWeight(.medium)
-                .foregroundColor(.textSecondary)
+                .foregroundStyle(Color(.textSecondary))
 
             Picker("", selection: $viewModel.selectedAreaUnit) {
                 ForEach(AreaUnit.allCases, id: \.self) { unit in
@@ -330,7 +330,7 @@ struct CalculatorViewWithFavorite: View {
                     saveFavorite()
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(.primaryGreen)
+                .tint(Color(.primaryGreen))
                 .disabled(favoriteName.isEmpty)
             }
             .padding()
@@ -366,4 +366,20 @@ struct CalculatorViewWithFavorite: View {
         .environment(LocalizationManager())
         .environment(HistoryManager())
         .environment(FavoritesManager())
+}
+
+#Preview("Dark Mode") {
+    ContentView()
+        .environment(LocalizationManager())
+        .environment(HistoryManager())
+        .environment(FavoritesManager())
+        .preferredColorScheme(.dark)
+}
+
+#Preview("Max Dynamic Type") {
+    ContentView()
+        .environment(LocalizationManager())
+        .environment(HistoryManager())
+        .environment(FavoritesManager())
+        .dynamicTypeSize(.accessibility5)
 }

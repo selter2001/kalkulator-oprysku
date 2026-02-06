@@ -3,7 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(LocalizationManager.self) private var localization
     @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
         List {
             // Language Section
@@ -22,35 +22,35 @@ struct SettingsView: View {
             } header: {
                 Text(localization.language)
                     .font(.subheadline)
-                    .foregroundColor(.textSecondary)
+                    .foregroundStyle(Color(.textSecondary))
             }
-            .listRowBackground(Color.backgroundCard)
-            
+            .listRowBackground(Color(.backgroundCard))
+
             // App Info Section
             Section {
                 HStack {
                     Text(localization.version)
                     Spacer()
                     Text("1.0.0")
-                        .foregroundColor(.textSecondary)
+                        .foregroundStyle(Color(.textSecondary))
                 }
 
                 HStack {
                     Text("iOS")
                     Spacer()
                     Text("17.0+")
-                        .foregroundColor(.textSecondary)
+                        .foregroundStyle(Color(.textSecondary))
                 }
             } header: {
                 Text(localization.information)
                     .font(.subheadline)
-                    .foregroundColor(.textSecondary)
+                    .foregroundStyle(Color(.textSecondary))
             }
-            .listRowBackground(Color.backgroundCard)
+            .listRowBackground(Color(.backgroundCard))
         }
         .listStyle(.insetGrouped)
         .scrollContentBackground(.hidden)
-        .background(LinearGradient.backgroundGradient.ignoresSafeArea())
+        .background(AppGradients.backgroundGradient.ignoresSafeArea())
         .navigationTitle(localization.settings)
         .navigationBarTitleDisplayMode(.large)
     }
@@ -61,21 +61,21 @@ struct LanguageRow: View {
     let language: Language
     let isSelected: Bool
     let onSelect: () -> Void
-    
+
     var body: some View {
         Button(action: onSelect) {
             HStack {
                 Text(language.flag)
                     .font(.title2)
-                
+
                 Text(language.displayName)
-                    .foregroundColor(.textPrimary)
-                
+                    .foregroundStyle(Color(.textPrimary))
+
                 Spacer()
-                
+
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.primaryGreen)
+                        .foregroundStyle(Color(.primaryGreen))
                         .font(.title3)
                 }
             }
