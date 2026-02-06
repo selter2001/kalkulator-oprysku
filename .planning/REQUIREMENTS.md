@@ -4,16 +4,16 @@
 
 ### Obliczenia (CALC)
 
-- [ ] **CALC-01**: Skad pelnego zbiornika -- ile litrow wody + ile litrow srodka wlac do kazdego pelnego zbiornika
-- [ ] **CALC-02**: Skad niepelnego zbiornika -- ile litrow wody + ile litrow srodka wlac do ostatniego, niepelnego zbiornika
-- [ ] **CALC-03**: Podsumowanie zakupowe -- sumaryczna ilosc srodka do kupienia na cale pole
+- [x] **CALC-01**: Skad pelnego zbiornika -- ile litrow wody + ile litrow srodka wlac do kazdego pelnego zbiornika
+- [x] **CALC-02**: Skad niepelnego zbiornika -- ile litrow wody + ile litrow srodka wlac do ostatniego, niepelnego zbiornika
+- [x] **CALC-03**: Podsumowanie zakupowe -- sumaryczna ilosc srodka do kupienia na cale pole
 
 ### UI/UX (UI)
 
-- [ ] **UI-01**: Obsluga trybu ciemnego (Dark Mode) -- Asset Catalog named colors, adaptacyjne gradienty
-- [ ] **UI-02**: Dynamic Type -- semantyczne czcionki, @ScaledMetric, czytelnosc na kazdym rozmiarze
-- [ ] **UI-03**: Styl "Field-Ready" -- wysoki kontrast, duze przyciski, czytelnosc w pelnym sloncu
-- [ ] **UI-04**: Refaktor do MVVM -- logika z widokow do ViewModel, podzial na foldery Model/View/ViewModel/Services/Theme
+- [x] **UI-01**: Obsluga trybu ciemnego (Dark Mode) -- Asset Catalog named colors, adaptacyjne gradienty
+- [x] **UI-02**: Dynamic Type -- semantyczne czcionki, @ScaledMetric, czytelnosc na kazdym rozmiarze
+- [x] **UI-03**: Styl "Field-Ready" -- wysoki kontrast, duze przyciski, czytelnosc w pelnym sloncu
+- [x] **UI-04**: Refaktor do MVVM -- logika z widokow do ViewModel, podzial na foldery Model/View/ViewModel/Services/Theme
 
 ### Eksport i branding (EXP)
 
@@ -24,11 +24,11 @@
 
 ### Naprawy i porzadki (FIX)
 
-- [ ] **FIX-01**: Naprawienie hardcoded polskiego tekstu w HistoryRowView -- uzycie LocalizationManager
-- [ ] **FIX-02**: Naprawienie hardcoded polskiego tekstu w SettingsView ("Wersja", "Informacje")
-- [ ] **FIX-03**: Uporzadkowanie struktury plikow -- podzial na foldery Model/View/ViewModel/Services/Theme
-- [ ] **FIX-04**: iOS 17+ deployment target -- wymagane dla ImageRenderer i nowoczesnych API
-- [ ] **FIX-05**: Migracja z ObservableObject/@Published na @Observable/@Bindable (iOS 17+)
+- [x] **FIX-01**: Naprawienie hardcoded polskiego tekstu w HistoryRowView -- uzycie LocalizationManager
+- [x] **FIX-02**: Naprawienie hardcoded polskiego tekstu w SettingsView ("Wersja", "Informacje")
+- [x] **FIX-03**: Uporzadkowanie struktury plikow -- podzial na foldery Model/View/ViewModel/Services/Theme
+- [x] **FIX-04**: iOS 17+ deployment target -- wymagane dla ImageRenderer i nowoczesnych API
+- [x] **FIX-05**: Migracja z ObservableObject/@Published na @Observable/@Bindable (iOS 17+)
 
 ### Istniejace (zachowane z obecnego kodu) (EXISTING)
 
@@ -64,22 +64,22 @@
 
 | REQ | Phase | Plan | Status |
 |-----|-------|------|--------|
-| CALC-01 | Phase 1 | -- | pending |
-| CALC-02 | Phase 1 | -- | pending |
-| CALC-03 | Phase 1 | -- | pending |
-| UI-01 | Phase 2 | -- | pending |
-| UI-02 | Phase 2 | -- | pending |
-| UI-03 | Phase 2 | -- | pending |
-| UI-04 | Phase 1 | -- | pending |
+| CALC-01 | Phase 1 | 01-03 | Complete |
+| CALC-02 | Phase 1 | 01-03 | Complete |
+| CALC-03 | Phase 1 | 01-03 | Complete |
+| UI-01 | Phase 2 | 02-01, 02-02 | Complete |
+| UI-02 | Phase 2 | 02-01, 02-02 | Complete |
+| UI-03 | Phase 2 | 02-01, 02-02 | Complete |
+| UI-04 | Phase 1 | 01-01, 01-02, 01-03 | Complete |
 | EXP-01 | Phase 3 | -- | pending |
 | EXP-02 | Phase 3 | -- | pending |
 | EXP-03 | Phase 3 | -- | pending |
 | EXP-04 | Phase 3 | -- | pending |
-| FIX-01 | Phase 1 | -- | pending |
-| FIX-02 | Phase 1 | -- | pending |
-| FIX-03 | Phase 1 | -- | pending |
-| FIX-04 | Phase 1 | -- | pending |
-| FIX-05 | Phase 1 | -- | pending |
+| FIX-01 | Phase 1 | 01-04 | Complete |
+| FIX-02 | Phase 1 | 01-04 | Complete |
+| FIX-03 | Phase 1 | 01-01 | Complete |
+| FIX-04 | Phase 1 | 01-01 | Complete |
+| FIX-05 | Phase 1 | 01-01 | Complete |
 
 ---
 *16 aktywnych wymagan v1 + 9 istniejacych = 25 lacznie*

@@ -13,7 +13,7 @@ Transform an existing 12-file flat SwiftUI spray calculator into an App Store-re
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & MVVM** - Restructure codebase into MVVM, migrate to @Observable, fix localization bugs, add per-tank composition calculations
-- [ ] **Phase 2: Visual Polish** - Coordinated dark mode via Asset Catalog, Dynamic Type support, field-ready high-contrast styling
+- [x] **Phase 2: Visual Polish** - Coordinated dark mode via Asset Catalog, Dynamic Type support, field-ready high-contrast styling
 - [ ] **Phase 3: Export & App Store Prep** - PDF export with ImageRenderer, About view, README/LICENSE, zero warnings, correct Bundle ID
 
 ## Phase Details
@@ -48,8 +48,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Asset Catalog color sets (18 colorsets with light/dark), AppGradients.swift, Components.swift full migration
-- [ ] 02-02-PLAN.md — Migrate remaining 5 views, delete Colors.swift, human-verify dark mode + Dynamic Type + readability
+- [x] 02-01-PLAN.md — Asset Catalog color sets (18 colorsets with light/dark), AppGradients.swift, Components.swift full migration
+- [x] 02-02-PLAN.md — Migrate remaining 5 views, delete Colors.swift, human-verify dark mode + Dynamic Type + readability
 
 ### Phase 3: Export & App Store Prep
 **Goal**: Users can export calculation results as a professional PDF document, view author information, and the app is packaged for App Store submission with zero warnings
@@ -99,5 +99,5 @@ Phases execute in numeric order: 1 -> 2 -> 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & MVVM | 4/4 | COMPLETE | 2026-02-06 |
-| 2. Visual Polish | 0/2 | Not started | - |
+| 2. Visual Polish | 2/2 | COMPLETE | 2026-02-06 |
 | 3. Export & App Store Prep | 0/2 | Not started | - |
