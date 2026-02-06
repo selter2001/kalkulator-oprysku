@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1000001 /* SprayCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001; };
-		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002; };
-		A1000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000003; };
-		A1000004 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004; };
-		A1000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005; };
-		A1000006 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006; };
-		A1000007 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007; };
-		A1000008 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008; };
-		A1000009 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009; };
-		A1000010 /* TractorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010; };
-		A1000012 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012; };
-		A1000013 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013; };
-		A1000014 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014; };
-		A1000015 /* SprayCalculatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015; };
-		A1000016 /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016; };
+		A1000001 /* SprayCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001 /* SprayCalculatorApp.swift */; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002 /* ContentView.swift */; };
+		A1000003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000003 /* Assets.xcassets */; };
+		A1000004 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004 /* LocalizationManager.swift */; };
+		A1000005 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005 /* Models.swift */; };
+		A1000006 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006 /* HistoryManager.swift */; };
+		A1000007 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007 /* FavoritesManager.swift */; };
+		A1000008 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008 /* Colors.swift */; };
+		A1000009 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009 /* Components.swift */; };
+		A1000010 /* TractorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010 /* TractorAnimation.swift */; };
+		A1000012 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012 /* HistoryView.swift */; };
+		A1000013 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013 /* FavoritesView.swift */; };
+		A1000014 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014 /* SettingsView.swift */; };
+		A1000015 /* Services/SprayCalculatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015 /* Services/SprayCalculatorService.swift */; };
+		A1000016 /* ViewModels/CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016 /* ViewModels/CalcViewModel.swift */; };
+		A1000017 /* AppGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000017 /* AppGradients.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C1000000 /* SprayCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SprayCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1000001 /* SprayCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SprayCalculatorApp.swift; sourceTree = "<group>"; };
 		B1000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B1000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,8 +39,10 @@
 		B1000012 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B1000013 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		B1000014 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		B1000015 /* SprayCalculatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/SprayCalculatorService.swift"; sourceTree = "<group>"; };
-		B1000016 /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModels/CalcViewModel.swift"; sourceTree = "<group>"; };
+		B1000015 /* Services/SprayCalculatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services/SprayCalculatorService.swift; sourceTree = "<group>"; };
+		B1000016 /* ViewModels/CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels/CalcViewModel.swift; sourceTree = "<group>"; };
+		B1000017 /* AppGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGradients.swift; sourceTree = "<group>"; };
+		C1000000 /* SprayCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SprayCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +79,20 @@
 				B1000012 /* HistoryView.swift */,
 				B1000013 /* FavoritesView.swift */,
 				B1000014 /* SettingsView.swift */,
-				B1000015 /* SprayCalculatorService.swift */,
-				B1000016 /* CalcViewModel.swift */,
+				B1000015 /* Services/SprayCalculatorService.swift */,
+				B1000016 /* ViewModels/CalcViewModel.swift */,
+				E1000003 /* Theme */,
 				B1000003 /* Assets.xcassets */,
 			);
 			path = SprayCalculator;
+			sourceTree = "<group>";
+		};
+		E1000003 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B1000017 /* AppGradients.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		E1000002 /* Products */ = {
@@ -97,7 +108,7 @@
 /* Begin PBXNativeTarget section */
 		F1000000 /* SprayCalculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = G1000002;
+			buildConfigurationList = G1000002 /* Build configuration list for PBXNativeTarget "SprayCalculator" */;
 			buildPhases = (
 				F1000001 /* Sources */,
 				D1000000 /* Frameworks */,
@@ -120,14 +131,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					F1000000 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = G1000001;
+			buildConfigurationList = G1000001 /* Build configuration list for PBXProject "SprayCalculator" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = pl;
 			hasScannedForEncodings = 0;
@@ -174,8 +185,9 @@
 				A1000012 /* HistoryView.swift in Sources */,
 				A1000013 /* FavoritesView.swift in Sources */,
 				A1000014 /* SettingsView.swift in Sources */,
-				A1000015 /* SprayCalculatorService.swift in Sources */,
-				A1000016 /* CalcViewModel.swift in Sources */,
+				A1000015 /* Services/SprayCalculatorService.swift in Sources */,
+				A1000016 /* ViewModels/CalcViewModel.swift in Sources */,
+				A1000017 /* AppGradients.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +199,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -217,6 +230,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = DB4A3HP486;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -240,6 +254,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -250,6 +265,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -280,6 +296,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = DB4A3HP486;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -296,6 +313,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
