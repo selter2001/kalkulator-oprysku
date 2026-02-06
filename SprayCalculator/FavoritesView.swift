@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @EnvironmentObject var localization: LocalizationManager
-    @EnvironmentObject var favoritesManager: FavoritesManager
+    @Environment(LocalizationManager.self) private var localization
+    @Environment(FavoritesManager.self) private var favoritesManager
     
     let onSelectFavorite: (FavoriteConfiguration) -> Void
     
@@ -52,7 +52,7 @@ struct FavoritesView: View {
 
 // MARK: - Favorite Row View
 struct FavoriteRowView: View {
-    @EnvironmentObject var localization: LocalizationManager
+    @Environment(LocalizationManager.self) private var localization
     let favorite: FavoriteConfiguration
     let onUse: () -> Void
     
@@ -138,7 +138,7 @@ struct MiniDetailView: View {
 #Preview {
     NavigationStack {
         FavoritesView(onSelectFavorite: { _ in })
-            .environmentObject(LocalizationManager())
-            .environmentObject(FavoritesManager())
+            .environment(LocalizationManager())
+            .environment(FavoritesManager())
     }
 }

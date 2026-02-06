@@ -1,7 +1,9 @@
-import SwiftUI
+import Foundation
+import Observation
 
-class HistoryManager: ObservableObject {
-    @Published var calculations: [SprayCalculation] = []
+@Observable
+class HistoryManager {
+    var calculations: [SprayCalculation] = []
     
     private let storageKey = "sprayCalculationHistory"
     private let maxHistoryItems = 50

@@ -84,7 +84,7 @@ struct SprayCalculation: Identifiable, Codable {
 }
 
 // MARK: - Favorite Configuration
-struct FavoriteConfiguration: Identifiable, Codable {
+struct FavoriteConfiguration: Identifiable, Codable, Equatable {
     let id: UUID
     let name: String
     let dateCreated: Date

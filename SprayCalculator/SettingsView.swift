@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var localization: LocalizationManager
+    @Environment(LocalizationManager.self) private var localization
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -88,6 +88,6 @@ struct LanguageRow: View {
 #Preview {
     NavigationStack {
         SettingsView()
-            .environmentObject(LocalizationManager())
+            .environment(LocalizationManager())
     }
 }

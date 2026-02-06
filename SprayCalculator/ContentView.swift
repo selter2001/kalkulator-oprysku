@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var localization: LocalizationManager
-    @EnvironmentObject var historyManager: HistoryManager
-    @EnvironmentObject var favoritesManager: FavoritesManager
+    @Environment(LocalizationManager.self) private var localization
+    @Environment(HistoryManager.self) private var historyManager
+    @Environment(FavoritesManager.self) private var favoritesManager
     
     @State private var selectedTab = 0
     @State private var calculatorViewKey = UUID()
@@ -88,9 +88,9 @@ struct CalculatorViewWrapper: View {
 }
 
 struct CalculatorViewWithFavorite: View {
-    @EnvironmentObject var localization: LocalizationManager
-    @EnvironmentObject var historyManager: HistoryManager
-    @EnvironmentObject var favoritesManager: FavoritesManager
+    @Environment(LocalizationManager.self) private var localization
+    @Environment(HistoryManager.self) private var historyManager
+    @Environment(FavoritesManager.self) private var favoritesManager
     
     @Binding var selectedFavorite: FavoriteConfiguration?
     
@@ -428,7 +428,7 @@ struct CalculatorViewWithFavorite: View {
 
 #Preview {
     ContentView()
-        .environmentObject(LocalizationManager())
-        .environmentObject(HistoryManager())
-        .environmentObject(FavoritesManager())
+        .environment(LocalizationManager())
+        .environment(HistoryManager())
+        .environment(FavoritesManager())
 }

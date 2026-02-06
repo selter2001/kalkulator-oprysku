@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @EnvironmentObject var localization: LocalizationManager
-    @EnvironmentObject var historyManager: HistoryManager
+    @Environment(LocalizationManager.self) private var localization
+    @Environment(HistoryManager.self) private var historyManager
     
     var body: some View {
         Group {
@@ -152,7 +152,7 @@ struct DetailRow: View {
 #Preview {
     NavigationStack {
         HistoryView()
-            .environmentObject(LocalizationManager())
-            .environmentObject(HistoryManager())
+            .environment(LocalizationManager())
+            .environment(HistoryManager())
     }
 }

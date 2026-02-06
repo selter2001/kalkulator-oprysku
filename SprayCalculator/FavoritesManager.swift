@@ -1,7 +1,9 @@
-import SwiftUI
+import Foundation
+import Observation
 
-class FavoritesManager: ObservableObject {
-    @Published var favorites: [FavoriteConfiguration] = []
+@Observable
+class FavoritesManager {
+    var favorites: [FavoriteConfiguration] = []
     
     private let storageKey = "sprayFavoriteConfigurations"
     

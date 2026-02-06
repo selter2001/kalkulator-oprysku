@@ -1,4 +1,5 @@
 import SwiftUI
+import Observation
 
 enum Language: String, CaseIterable {
     case polish = "pl"
@@ -19,8 +20,9 @@ enum Language: String, CaseIterable {
     }
 }
 
-class LocalizationManager: ObservableObject {
-    @Published var currentLanguage: Language {
+@Observable
+class LocalizationManager {
+    var currentLanguage: Language {
         didSet {
             UserDefaults.standard.set(currentLanguage.rawValue, forKey: "selectedLanguage")
         }
