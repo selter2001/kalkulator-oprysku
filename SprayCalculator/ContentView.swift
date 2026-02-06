@@ -310,6 +310,27 @@ struct CalculatorViewWithFavorite: View {
                 unit: localization.liters,
                 delay: 0.6
             )
+
+            // EXP-01: Export PDF button
+            ShareLink(
+                item: PDFExportService.generatePDF(for: result, localization: localization),
+                preview: SharePreview(
+                    localization.appTitle,
+                    image: Image(systemName: "doc.text")
+                )
+            ) {
+                Label(localization.exportPDF, systemImage: "square.and.arrow.up")
+                    .font(.body.weight(.semibold))
+                    .fontDesign(.rounded)
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color(.primaryGreen))
+                    )
+            }
+            .padding(.top, 8)
         }
         .transition(.move(edge: .bottom).combined(with: .opacity))
     }
