@@ -47,6 +47,17 @@ struct SettingsView: View {
                     .foregroundStyle(Color(.textSecondary))
             }
             .listRowBackground(Color(.backgroundCard))
+
+            // About Section
+            Section {
+                NavigationLink {
+                    AboutView()
+                } label: {
+                    Label(localization.about, systemImage: "info.circle")
+                        .foregroundStyle(Color(.textPrimary))
+                }
+            }
+            .listRowBackground(Color(.backgroundCard))
         }
         .listStyle(.insetGrouped)
         .scrollContentBackground(.hidden)
