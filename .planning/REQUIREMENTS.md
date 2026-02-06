@@ -17,10 +17,10 @@
 
 ### Eksport i branding (EXP)
 
-- [ ] **EXP-01**: Eksport wynikow do PDF -- ImageRenderer, data, wyniki, podpis "Wygenerowano w aplikacji autorstwa Wojciecha Olszaka"
-- [ ] **EXP-02**: Widok "O aplikacji" -- informacja o autorze, wersja, link do kontaktu
-- [ ] **EXP-03**: Profesjonalny README.md z instrukcja budowania i miejsce na screenshoty + Licencja MIT
-- [ ] **EXP-04**: Zero warnings w Xcode + poprawny Bundle Identifier pod deployment
+- [x] **EXP-01**: Eksport wynikow do PDF -- ImageRenderer, data, wyniki, podpis "Wygenerowano w aplikacji autorstwa Wojciecha Olszaka"
+- [x] **EXP-02**: Widok "O aplikacji" -- informacja o autorze, wersja, link do kontaktu
+- [x] **EXP-03**: Profesjonalny README.md z instrukcja budowania i miejsce na screenshoty + Licencja MIT
+- [x] **EXP-04**: Zero warnings w Xcode + poprawny Bundle Identifier pod deployment
 
 ### Naprawy i porzadki (FIX)
 
@@ -71,10 +71,10 @@
 | UI-02 | Phase 2 | 02-01, 02-02 | Complete |
 | UI-03 | Phase 2 | 02-01, 02-02 | Complete |
 | UI-04 | Phase 1 | 01-01, 01-02, 01-03 | Complete |
-| EXP-01 | Phase 3 | -- | pending |
-| EXP-02 | Phase 3 | -- | pending |
-| EXP-03 | Phase 3 | -- | pending |
-| EXP-04 | Phase 3 | -- | pending |
+| EXP-01 | Phase 3 | 03-01 | Complete |
+| EXP-02 | Phase 3 | 03-02 | Complete |
+| EXP-03 | Phase 3 | 03-02 | Complete |
+| EXP-04 | Phase 3 | 03-02 | Complete |
 | FIX-01 | Phase 1 | 01-04 | Complete |
 | FIX-02 | Phase 1 | 01-04 | Complete |
 | FIX-03 | Phase 1 | 01-01 | Complete |

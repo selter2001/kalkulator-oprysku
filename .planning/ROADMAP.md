@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation & MVVM** - Restructure codebase into MVVM, migrate to @Observable, fix localization bugs, add per-tank composition calculations
 - [x] **Phase 2: Visual Polish** - Coordinated dark mode via Asset Catalog, Dynamic Type support, field-ready high-contrast styling
-- [ ] **Phase 3: Export & App Store Prep** - PDF export with ImageRenderer, About view, README/LICENSE, zero warnings, correct Bundle ID
+- [x] **Phase 3: Export & App Store Prep** - PDF export with ImageRenderer, About view, README/LICENSE, zero warnings, correct Bundle ID
 
 ## Phase Details
 
@@ -63,8 +63,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — PDFExportService + PDFContentView + ShareLink + 6 nowych lokalizacji
-- [ ] 03-02-PLAN.md — AboutView, README.md, LICENSE, Bundle ID fix, zero-warnings, human-verify
+- [x] 03-01-PLAN.md — PDFExportService + PDFContentView + ShareLink + 6 nowych lokalizacji
+- [x] 03-02-PLAN.md — AboutView, README.md, LICENSE, Bundle ID fix, zero-warnings, human-verify
 
 ## Coverage
 
@@ -100,4 +100,4 @@ Phases execute in numeric order: 1 -> 2 -> 3
 |-------|----------------|--------|-----------|
 | 1. Foundation & MVVM | 4/4 | COMPLETE | 2026-02-06 |
 | 2. Visual Polish | 2/2 | COMPLETE | 2026-02-06 |
-| 3. Export & App Store Prep | 0/2 | Not started | - |
+| 3. Export & App Store Prep | 2/2 | COMPLETE | 2026-02-06 |
