@@ -1,4 +1,4 @@
-# SprayCalculator
+# spray-calc-ios
 
 ![Swift](https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white)
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-0071E3?style=flat&logo=swift&logoColor=white)
@@ -41,8 +41,8 @@ Professional iOS agricultural spray calculator designed for farmers and agronomi
 ### Installation
 
 ```bash
-git clone https://github.com/selter2001/kalkulator-oprysku.git
-cd kalkulator-oprysku
+git clone https://github.com/selter2001/spray-calc-ios.git
+cd spray-calc-ios
 open SprayCalculator.xcodeproj
 ```
 
@@ -82,7 +82,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-# SprayCalculator
+# spray-calc-ios
 
 Profesjonalny kalkulator oprysku dla systemu iOS, zaprojektowany z myslą o rolnikach i agronomach. Wprowadź powierzchnię pola, pojemność zbiornika opryskiwacza, dawkę cieczy roboczej oraz stężenie środka chemicznego — aplikacja obliczy całkowitą objętość cieczy roboczej, ilość środka chemicznego i rozdzieli wszystko na pełne oraz niepełne zbiorniki.
 
@@ -119,8 +119,8 @@ Profesjonalny kalkulator oprysku dla systemu iOS, zaprojektowany z myslą o roln
 ### Instalacja
 
 ```bash
-git clone https://github.com/selter2001/kalkulator-oprysku.git
-cd kalkulator-oprysku
+git clone https://github.com/selter2001/spray-calc-ios.git
+cd spray-calc-ios
 open SprayCalculator.xcodeproj
 ```
 
