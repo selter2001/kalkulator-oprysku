@@ -8,6 +8,36 @@
 
 Professional iOS agricultural spray calculator designed for farmers and agronomists. Enter your field area, sprayer tank capacity, spray dose, and chemical concentration — the app calculates total working fluid volume, chemical quantity, and divides everything across full and partial tank loads.
 
+## Screenshots
+
+### Calculator & Results
+
+<p align="center">
+  <img src="screenshots/01_calculator_empty.png" width="200" alt="Calculator — Input Form">&nbsp;&nbsp;
+  <img src="screenshots/02_calculating_animation.png" width="200" alt="Calculating — Tractor Animation">&nbsp;&nbsp;
+  <img src="screenshots/03_results.png" width="200" alt="Results — Full Breakdown">&nbsp;&nbsp;
+  <img src="screenshots/04_pdf_export.png" width="200" alt="PDF Export Preview">
+</p>
+
+<p align="center">
+  <sub>Input form · Tractor animation · Detailed results · PDF export</sub>
+</p>
+
+### History, Favorites & Settings
+
+<p align="center">
+  <img src="screenshots/05_history_collapsed.png" width="200" alt="History — Collapsed">&nbsp;&nbsp;
+  <img src="screenshots/06_history_expanded.png" width="200" alt="History — Expanded">&nbsp;&nbsp;
+  <img src="screenshots/07_favorites.png" width="200" alt="Favorites">&nbsp;&nbsp;
+  <img src="screenshots/08_settings.png" width="200" alt="Settings — Language & Info">
+</p>
+
+<p align="center">
+  <sub>History (collapsed) · History (expanded) · Saved favorites · Settings with language picker</sub>
+</p>
+
+---
+
 ## Features
 
 - **Spray Calculation Engine** — computes total working fluid, chemical amount, and tank load distribution (full + partial)
@@ -85,6 +115,36 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 # spray-calc-ios
 
 Profesjonalny kalkulator oprysku dla systemu iOS, zaprojektowany z myslą o rolnikach i agronomach. Wprowadź powierzchnię pola, pojemność zbiornika opryskiwacza, dawkę cieczy roboczej oraz stężenie środka chemicznego — aplikacja obliczy całkowitą objętość cieczy roboczej, ilość środka chemicznego i rozdzieli wszystko na pełne oraz niepełne zbiorniki.
+
+## Zrzuty ekranu
+
+### Kalkulator i wyniki
+
+<p align="center">
+  <img src="screenshots/01_calculator_empty.png" width="200" alt="Kalkulator — Formularz">&nbsp;&nbsp;
+  <img src="screenshots/02_calculating_animation.png" width="200" alt="Obliczanie — Animacja traktora">&nbsp;&nbsp;
+  <img src="screenshots/03_results.png" width="200" alt="Wyniki — Szczegółowy raport">&nbsp;&nbsp;
+  <img src="screenshots/04_pdf_export.png" width="200" alt="Podgląd eksportu PDF">
+</p>
+
+<p align="center">
+  <sub>Formularz · Animacja traktora · Szczegółowe wyniki · Eksport PDF</sub>
+</p>
+
+### Historia, ulubione i ustawienia
+
+<p align="center">
+  <img src="screenshots/05_history_collapsed.png" width="200" alt="Historia — Zwinięta">&nbsp;&nbsp;
+  <img src="screenshots/06_history_expanded.png" width="200" alt="Historia — Rozwinięta">&nbsp;&nbsp;
+  <img src="screenshots/07_favorites.png" width="200" alt="Ulubione">&nbsp;&nbsp;
+  <img src="screenshots/08_settings.png" width="200" alt="Ustawienia — Język i informacje">
+</p>
+
+<p align="center">
+  <sub>Historia (zwinięta) · Historia (rozwinięta) · Zapisane ulubione · Ustawienia z wyborem języka</sub>
+</p>
+
+---
 
 ## Funkcje
 
